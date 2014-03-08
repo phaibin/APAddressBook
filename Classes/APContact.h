@@ -21,6 +21,7 @@
 @property (nonatomic, readonly) NSArray *emails;
 @property (nonatomic, readonly) UIImage *photo;
 @property (nonatomic, readonly) UIImage *thumbnail;
+@property (nonatomic, readonly) NSString *fullName;
 
 - (id)initWithRecordRef:(ABRecordRef)recordRef fieldMask:(APContactField)fieldMask;
 

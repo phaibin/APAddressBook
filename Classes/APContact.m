@@ -134,4 +134,33 @@
     CFRelease(multiValue);
 }
 
+- (NSString *)fullName
+{
+    if (self.firstName && self.lastName)
+    {
+        if ([self containsEnglish:self.firstName] || [self containsEnglish:self.lastName])
+            return [NSString stringWithFormat:@"%@ %@", self.lastName, self.firstName];
+        else
+            return [NSString stringWithFormat:@"%@%@", self.lastName, self.firstName];
+    }
+    else if (self.firstName || self.lastName)
+    {
+        return self.firstName ?: self.lastName;
+    }
+    else
+    {
+        return @"Untitled contact";
+    }
+}
+
+- (BOOL)containsEnglish:(NSString *)s
+{
+    for(int i=0; i< [s length];i++) {
+        int a = [s characterAtIndex:i];
+        if(a > 0x00 && a < 0x7f)
+            return YES;
+    }
+    return NO;
+}
+
 @end
