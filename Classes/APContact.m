@@ -136,20 +136,15 @@
 
 - (NSString *)fullName
 {
-    if (self.firstName && self.lastName)
-    {
+    if (self.firstName && self.lastName) {
         if ([self containsEnglish:self.firstName] || [self containsEnglish:self.lastName])
             return [NSString stringWithFormat:@"%@ %@", self.lastName, self.firstName];
         else
             return [NSString stringWithFormat:@"%@%@", self.lastName, self.firstName];
-    }
-    else if (self.firstName || self.lastName)
-    {
+    } else if (self.firstName || self.lastName) {
         return self.firstName ?: self.lastName;
-    }
-    else
-    {
-        return @"Untitled contact";
+    } else {
+        return @"";
     }
 }
 
